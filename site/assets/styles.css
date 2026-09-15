@@ -325,3 +325,25 @@ footer{background:var(--ink-3);color:#C3D0C9;}
   .crisis-dock .sub{display:none;}
   .crisis-dock{padding:12px 14px;}
 }
+
+/* ---------- Entry animations ---------- */
+@media (prefers-reduced-motion: no-preference){
+  /* Scroll-triggered reveal, toggled by main.js via IntersectionObserver */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal.is-visible{opacity:1;transform:translateY(0);}
+
+  /* Immediate cascade for hero / page-banner content on load */
+  .welcome-band .wrap > *, .page-banner .wrap > *, .hero-photo .portrait-frame img{
+    animation:fadeInUp .7s ease both;
+  }
+  .welcome-band .wrap > *:nth-child(1), .page-banner .wrap > *:nth-child(1){animation-delay:0s;}
+  .welcome-band .wrap > *:nth-child(2), .page-banner .wrap > *:nth-child(2){animation-delay:.08s;}
+  .welcome-band .wrap > *:nth-child(3), .page-banner .wrap > *:nth-child(3){animation-delay:.16s;}
+  .welcome-band .wrap > *:nth-child(4), .page-banner .wrap > *:nth-child(4){animation-delay:.24s;}
+  .welcome-band .wrap > *:nth-child(5), .page-banner .wrap > *:nth-child(5){animation-delay:.32s;}
+  .hero-photo .portrait-frame img{animation-delay:.1s;}
+}
+@keyframes fadeInUp{
+  from{opacity:0;transform:translateY(14px);}
+  to{opacity:1;transform:translateY(0);}
+}

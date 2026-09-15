@@ -29,4 +29,37 @@ document.addEventListener('DOMContentLoaded', function(){
       if (note){ note.textContent = 'This is a concept form — nothing was sent. On the live site this would reach the team directly.'; }
     });
   }
+
+  // Scroll-triggered entry animations for repeated content (cards, stats, steps).
+  // Elements get the class here (not in markup) so a page with JS disabled
+  // never ends up with hidden content.
+  var revealSelectors = [
+    '.p-card', '.team-card', '.i-card', '.loc-card', '.process-step',
+    '.trust-item', '.stat', '.other-card', '.mode-card', '.story-col',
+    '.story-panel', '.section-head', '.foot-office', '.contact-form',
+    '.contact-info', '.memberships .chip'
+  ];
+  var revealEls = Array.prototype.slice.call(document.querySelectorAll(revealSelectors.join(',')));
+  var groupIndex = new Map();
+  revealEls.forEach(function(el){
+    el.classList.add('reveal');
+    var parent = el.parentElement;
+    var idx = groupIndex.get(parent) || 0;
+    groupIndex.set(parent, idx + 1);
+    el.style.transitionDelay = (Math.min(idx, 5) * 70) + 'ms';
+  });
+
+  if ('IntersectionObserver' in window && revealEls.length){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, {threshold: 0.12, rootMargin: '0px 0px -40px 0px'});
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('is-visible'); });
+  }
 });
