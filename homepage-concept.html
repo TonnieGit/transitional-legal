@@ -1,0 +1,690 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transitional Legal Concept</title>
+<meta name="description" content="Homepage concept for Transitional Legal — calm, scannable, trauma-informed, with a persistent 24/7 line and a safety quick-exit.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
+<style>
+  :root{
+    --ink:#16302B;
+    --ink-2:#1F3A33;
+    --paper:#F1F3EE;
+    --surface:#FFFFFF;
+    --sage:#3E6E5D;
+    --sage-strong:#2E5548;
+    --sage-tint:#DEE9E2;
+    --brass:#8E6E2F;
+    --brass-tint:#EDE2C6;
+    --urgent:#B5391C;
+    --urgent-strong:#963017;
+    --text:#182420;
+    --text-soft:#4A5750;
+    --line:#D8DED3;
+    --focus:#2E5548;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ink:#0E1A17;
+      --ink-2:#16241F;
+      --paper:#101815;
+      --surface:#16211D;
+      --sage:#7FB09D;
+      --sage-strong:#98C4B2;
+      --sage-tint:#1E332B;
+      --brass:#D2AE64;
+      --brass-tint:#2B2417;
+      --urgent:#E2603C;
+      --urgent-strong:#EE7250;
+      --text:#EDEEE8;
+      --text-soft:#B7C0B9;
+      --line:#2B372F;
+      --focus:#9FCBB8;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ink:#0E1A17;
+    --ink-2:#16241F;
+    --paper:#101815;
+    --surface:#16211D;
+    --sage:#7FB09D;
+    --sage-strong:#98C4B2;
+    --sage-tint:#1E332B;
+    --brass:#D2AE64;
+    --brass-tint:#2B2417;
+    --urgent:#E2603C;
+    --urgent-strong:#EE7250;
+    --text:#EDEEE8;
+    --text-soft:#B7C0B9;
+    --line:#2B372F;
+    --focus:#9FCBB8;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--text);
+    font-family:"Public Sans", -apple-system, "Segoe UI", sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:"Frank Ruhl Libre", Georgia, "Times New Roman", serif;
+    font-weight:600;
+    line-height:1.15;
+    text-wrap:balance;
+    margin:0;
+    color:var(--text);
+  }
+  p{margin:0;}
+  a{color:inherit;text-decoration:none;}
+  button{font-family:inherit;}
+  :focus-visible{outline:2.5px solid var(--focus);outline-offset:3px;}
+  img{max-width:100%;display:block;}
+
+  .wrap{max-width:1180px;margin-inline:auto;padding-inline:24px;}
+  .eyebrow{
+    font-size:0.78rem;
+    font-weight:700;
+    letter-spacing:0.09em;
+    text-transform:uppercase;
+    color:var(--sage-strong);
+  }
+  .section{padding-block:clamp(48px,7vw,88px);}
+  .section-head{
+    max-width:640px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    margin-bottom:clamp(32px,5vw,48px);
+  }
+  .section-head.center{margin-inline:auto;text-align:center;align-items:center;}
+  .section-head h2{font-size:clamp(1.6rem,2.6vw,2.15rem);}
+  .section-head p{color:var(--text-soft);font-size:1.02rem;max-width:56ch;}
+
+  /* ---------- Quick exit + sticky crisis line ---------- */
+  .safety-exit{
+    position:fixed;top:14px;right:14px;z-index:200;
+    display:flex;align-items:center;gap:7px;
+    background:#101816;color:#F4F2EA;
+    border:1px solid rgba(255,255,255,0.14);
+    padding:9px 14px;border-radius:999px;
+    font-size:0.82rem;font-weight:600;letter-spacing:0.01em;
+    box-shadow:0 6px 18px rgba(0,0,0,0.28);
+    cursor:pointer;
+  }
+  .safety-exit:hover{background:#050807;}
+  .safety-exit svg{width:15px;height:15px;flex:none;}
+
+  .crisis-dock{
+    position:fixed;bottom:18px;right:18px;z-index:190;
+    display:flex;align-items:center;gap:10px;
+    background:var(--urgent);color:#fff;
+    padding:13px 18px;border-radius:999px;
+    box-shadow:0 10px 26px rgba(0,0,0,0.28);
+    font-weight:700;font-size:0.92rem;
+    transition:transform .15s ease, background .15s ease;
+  }
+  .crisis-dock:hover{background:var(--urgent-strong);transform:translateY(-2px);}
+  .crisis-dock svg{width:18px;height:18px;flex:none;}
+  .crisis-dock .sub{display:block;font-weight:500;font-size:0.72rem;opacity:0.9;font-variant-numeric:tabular-nums;}
+
+  /* ---------- Utility strip + nav ---------- */
+  .utility{
+    background:var(--ink);
+    color:#DCE7DF;
+    font-size:0.82rem;
+  }
+  .utility .wrap{
+    display:flex;justify-content:space-between;align-items:center;
+    gap:16px;padding-block:9px;flex-wrap:wrap;
+  }
+  .utility .offices{display:flex;gap:14px;flex-wrap:wrap;color:#AFC3B8;}
+  .utility .offices b{color:#EAF1EC;font-weight:600;}
+  .utility .contact-line{display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
+  .utility .contact-line a{display:flex;align-items:center;gap:6px;color:#EAF1EC;font-weight:600;}
+  .utility svg{width:14px;height:14px;}
+
+  header.nav{
+    position:sticky;top:0;z-index:150;
+    background:var(--surface);
+    border-bottom:1px solid var(--line);
+  }
+  header.nav .wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    padding-block:14px;gap:20px;
+  }
+  .brand{display:flex;align-items:center;gap:11px;}
+  .brand .mark{width:38px;height:38px;flex:none;}
+  .brand .word{display:flex;flex-direction:column;line-height:1.1;}
+  .brand .word span:first-child{
+    font-family:"Frank Ruhl Libre",serif;font-size:1.18rem;font-weight:600;
+  }
+  .brand .word span:last-child{
+    font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-soft);
+  }
+  nav.links{display:flex;gap:26px;align-items:center;}
+  nav.links a{font-size:0.94rem;font-weight:600;color:var(--text-soft);}
+  nav.links a:hover{color:var(--sage-strong);}
+  .nav-actions{display:flex;align-items:center;gap:16px;}
+  .nav-actions .phone{font-weight:700;font-size:0.92rem;display:flex;align-items:center;gap:6px;color:var(--text);}
+  .nav-actions .phone svg{width:15px;height:15px;color:var(--sage-strong);}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:11px 22px;border-radius:999px;font-weight:700;font-size:0.92rem;
+    border:1.5px solid transparent;white-space:nowrap;
+  }
+  .btn-primary{background:var(--sage);color:#fff;}
+  .btn-primary:hover{background:var(--sage-strong);}
+  .btn-urgent{background:var(--urgent);color:#fff;}
+  .btn-urgent:hover{background:var(--urgent-strong);}
+  .btn-ghost{background:transparent;border-color:var(--line);color:var(--text);}
+  .btn-ghost:hover{border-color:var(--sage);color:var(--sage-strong);}
+  .btn svg{width:16px;height:16px;}
+  .menu-toggle{display:none;}
+
+  /* ---------- Hero ---------- */
+  .hero{background:var(--paper);}
+  .hero .wrap{
+    display:grid;grid-template-columns:1.05fr 0.95fr;gap:clamp(28px,5vw,64px);
+    align-items:center;padding-block:clamp(40px,6vw,76px);
+  }
+  .hero h1{font-size:clamp(2.1rem,4vw,3.15rem);}
+  .hero-copy{display:flex;flex-direction:column;gap:18px;align-items:flex-start;}
+  .hero-copy p.lede{font-size:1.1rem;color:var(--text-soft);max-width:52ch;}
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:4px;}
+  .hero-note{font-size:0.85rem;color:var(--text-soft);display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+  .hero-note .dot{width:4px;height:4px;border-radius:50%;background:var(--text-soft);}
+
+  .hero-art{position:relative;aspect-ratio:4/4.4;}
+  .hero-art .ring-field{
+    position:absolute;inset:0;border-radius:28px;overflow:hidden;
+    background:radial-gradient(circle at 32% 28%, var(--ink-2), var(--ink) 70%);
+  }
+  .hero-art svg{position:absolute;inset:0;width:100%;height:100%;}
+  .hero-badge{
+    position:absolute;left:-8px;bottom:-22px;
+    background:var(--surface);border:1px solid var(--line);
+    border-radius:16px;padding:16px 18px;
+    box-shadow:0 16px 34px rgba(16,30,26,0.16);
+    max-width:260px;
+  }
+  .hero-badge .label{font-size:0.72rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--brass);}
+  .hero-badge p{font-size:0.92rem;margin-top:6px;color:var(--text);font-weight:600;line-height:1.4;}
+
+  /* ---------- Trust strip ---------- */
+  .trust{background:var(--surface);border-block:1px solid var(--line);}
+  .trust .wrap{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+    gap:28px;padding-block:32px;
+  }
+  .trust-item{display:flex;gap:14px;align-items:flex-start;}
+  .trust-item svg{width:26px;height:26px;flex:none;color:var(--sage-strong);margin-top:2px;}
+  .trust-item h3{font-family:"Public Sans",sans-serif;font-size:0.98rem;font-weight:700;}
+  .trust-item p{font-size:0.87rem;color:var(--text-soft);margin-top:3px;}
+
+  /* ---------- Practice areas ---------- */
+  .practice-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:20px;
+  }
+  .p-card{
+    background:var(--surface);border:1px solid var(--line);border-radius:16px;
+    padding:26px 24px;display:flex;flex-direction:column;gap:14px;
+  }
+  .p-card .icon-wrap{
+    width:46px;height:46px;border-radius:12px;background:var(--sage-tint);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .p-card .icon-wrap svg{width:24px;height:24px;color:var(--sage-strong);}
+  .p-card h3{font-family:"Frank Ruhl Libre",serif;font-size:1.14rem;font-weight:600;}
+  .p-card p{font-size:0.92rem;color:var(--text-soft);flex:1;}
+  .p-card .go{font-size:0.86rem;font-weight:700;color:var(--sage-strong);display:flex;align-items:center;gap:6px;}
+  .p-card .go svg{width:14px;height:14px;transition:transform .15s ease;}
+  .p-card:hover .go svg{transform:translateX(3px);}
+
+  /* ---------- Approach ---------- */
+  .approach{background:var(--ink);color:#EAF1EC;}
+  .approach .wrap{
+    display:grid;grid-template-columns:0.85fr 1.15fr;gap:clamp(28px,5vw,60px);
+    padding-block:clamp(48px,7vw,88px);
+  }
+  .approach .eyebrow{color:var(--brass);}
+  .approach h2{color:#fff;font-size:clamp(1.6rem,2.8vw,2.15rem);margin-top:12px;}
+  .approach .stat{margin-top:28px;display:flex;gap:16px;align-items:baseline;}
+  .approach .stat b{font-family:"Frank Ruhl Libre",serif;font-size:2.4rem;color:var(--brass-tint);}
+  .approach .stat span{font-size:0.88rem;color:#AFC3B8;max-width:22ch;}
+  .approach-list{display:flex;flex-direction:column;gap:22px;}
+  .approach-item{display:flex;gap:16px;padding-block:18px;border-top:1px solid rgba(255,255,255,0.14);}
+  .approach-item:first-child{border-top:none;padding-top:0;}
+  .approach-item .num{font-family:"Frank Ruhl Libre",serif;font-size:1.1rem;color:var(--brass-tint);flex:none;width:28px;}
+  .approach-item h3{color:#fff;font-family:"Public Sans",sans-serif;font-size:1.02rem;font-weight:700;}
+  .approach-item p{color:#C3D0C9;font-size:0.92rem;margin-top:6px;max-width:60ch;}
+
+  /* ---------- Locations ---------- */
+  .loc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;}
+  .loc-card{
+    border:1px solid var(--line);border-radius:16px;padding:24px;background:var(--surface);
+    display:flex;flex-direction:column;gap:12px;
+  }
+  .loc-card .tag{
+    align-self:flex-start;font-size:0.7rem;font-weight:700;letter-spacing:0.06em;
+    text-transform:uppercase;color:var(--sage-strong);background:var(--sage-tint);
+    padding:4px 10px;border-radius:999px;
+  }
+  .loc-card h3{font-family:"Frank Ruhl Libre",serif;font-size:1.2rem;}
+  .loc-card .detail{display:flex;gap:10px;font-size:0.9rem;color:var(--text-soft);}
+  .loc-card .detail svg{width:16px;height:16px;flex:none;margin-top:2px;color:var(--sage-strong);}
+  .loc-card .directions{margin-top:auto;font-size:0.86rem;font-weight:700;color:var(--sage-strong);display:flex;gap:6px;align-items:center;}
+
+  /* ---------- Insights ---------- */
+  .insight-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
+  .i-card{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--surface);display:flex;flex-direction:column;}
+  .i-card .top{height:6px;background:linear-gradient(90deg,var(--sage),var(--brass));}
+  .i-card .body{padding:22px;display:flex;flex-direction:column;gap:10px;flex:1;}
+  .i-card .tag{font-size:0.72rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:var(--brass);}
+  .i-card h3{font-family:"Frank Ruhl Libre",serif;font-size:1.08rem;font-weight:600;}
+  .i-card p{font-size:0.88rem;color:var(--text-soft);flex:1;}
+  .i-card .meta{font-size:0.8rem;color:var(--text-soft);display:flex;justify-content:space-between;padding-top:6px;border-top:1px solid var(--line);}
+
+  /* ---------- Final CTA ---------- */
+  .final-cta{background:var(--sage-tint);}
+  .final-cta .wrap{
+    padding-block:clamp(44px,6vw,72px);text-align:center;
+    display:flex;flex-direction:column;align-items:center;gap:18px;
+  }
+  .final-cta h2{max-width:20ch;font-size:clamp(1.6rem,3vw,2.2rem);}
+  .final-cta p{color:var(--text-soft);max-width:52ch;}
+  .final-cta .ctas{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:6px;}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--ink);color:#C3D0C9;}
+  footer .wrap{padding-block:56px 28px;}
+  .foot-grid{
+    display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:32px;
+    padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,0.12);
+  }
+  .foot-brand .brand{margin-bottom:12px;}
+  .foot-brand .brand .word span:first-child{color:#fff;}
+  .foot-brand .brand .word span:last-child{color:#9FB4A9;}
+  .foot-brand p{font-size:0.88rem;max-width:34ch;color:#9FB4A9;}
+  footer h4{font-size:0.78rem;letter-spacing:0.07em;text-transform:uppercase;color:#8FA79A;margin-bottom:14px;font-weight:700;}
+  footer ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px;font-size:0.9rem;}
+  footer ul a:hover{color:#fff;}
+  footer .loc-mini{font-size:0.9rem;color:#C3D0C9;margin-bottom:14px;}
+  footer .loc-mini b{display:block;color:#fff;font-weight:600;}
+  .foot-bottom{
+    display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+    padding-top:22px;font-size:0.8rem;color:#83998C;
+  }
+  .foot-bottom .legal-links{display:flex;gap:16px;flex-wrap:wrap;}
+  .foot-bottom .legal-links a:hover{color:#fff;}
+  .concept-note{
+    font-size:0.78rem;color:#7C9184;background:rgba(255,255,255,0.05);
+    border:1px dashed rgba(255,255,255,0.18);border-radius:10px;
+    padding:10px 14px;margin-top:22px;
+  }
+
+  @media (max-width:900px){
+    .hero .wrap{grid-template-columns:1fr;}
+    .hero-art{order:-1;max-width:340px;margin-inline:auto;}
+    .approach .wrap{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+    nav.links{display:none;}
+  }
+  @media (max-width:600px){
+    .utility .wrap{font-size:0.76rem;}
+    .foot-grid{grid-template-columns:1fr;}
+    .nav-actions .phone{display:none;}
+    .crisis-dock .sub{display:none;}
+    .crisis-dock{padding:12px 14px;}
+    header.nav .wrap{padding-block:12px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- Safety: quick exit -->
+<button class="safety-exit" id="quickExit" aria-label="Quickly leave this site">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 3H5a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h4"/><path d="M14 8l5 4-5 4"/><path d="M19 12H9"/></svg>
+  Quick Exit
+</button>
+
+<a class="crisis-dock" href="tel:1800000000">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/></svg>
+  <span>24/7 Urgent Help<span class="sub">1800 000 000</span></span>
+</a>
+
+<div class="utility">
+  <div class="wrap">
+    <div class="offices"><b>Offices:</b> Beenleigh · Brisbane · Ballina</div>
+    <div class="contact-line">
+      <a href="tel:1800000000">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/></svg>
+        24/7 Urgent Line: 1800 000 000
+      </a>
+      <span>Mon–Fri 8:30am–5:30pm · Urgent matters anytime</span>
+    </div>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <svg class="mark" viewBox="0 0 40 40" fill="none">
+        <rect x="1" y="1" width="38" height="38" rx="13" fill="var(--sage-tint)"/>
+        <path d="M20 8c4 1.6 7 2.4 10 2.6v8.2c0 6.6-4.2 11-10 13.2-5.8-2.2-10-6.6-10-13.2v-8.2c3-.2 6-1 10-2.6z" fill="none" stroke="var(--sage-strong)" stroke-width="1.8" stroke-linejoin="round"/>
+        <path d="M15.5 20.2l3 3 6-6.4" fill="none" stroke="var(--brass)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="word"><span>Transitional Legal</span><span>Family &amp; Criminal Law</span></span>
+    </a>
+    <nav class="links">
+      <a href="#approach">About</a>
+      <a href="#practice-areas">Practice Areas</a>
+      <a href="#locations">Locations</a>
+      <a href="#insights">Insights</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="phone" href="tel:1800000000">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/></svg>
+        1800 000 000
+      </a>
+      <a class="btn btn-primary" href="#contact">Book a Consultation</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <p class="eyebrow">Family &amp; Criminal Law · Beenleigh, Brisbane &amp; Ballina</p>
+        <h1>Steady legal guidance when your family needs it most.</h1>
+        <p class="lede">Transitional Legal helps people through high-conflict separation, parenting disputes and protection order matters — with the same care on your worst day as on your first call.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#contact">
+            Book a Confidential Consultation
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-urgent" href="tel:1800000000">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/></svg>
+            24/7 Urgent Help
+          </a>
+        </div>
+        <p class="hero-note">Free 15-minute initial call<span class="dot"></span>By appointment or phone<span class="dot"></span>Beenleigh, Brisbane &amp; Ballina</p>
+      </div>
+      <div class="hero-art">
+        <div class="ring-field"></div>
+        <svg viewBox="0 0 400 440" aria-hidden="true">
+          <circle cx="210" cy="150" r="150" fill="none" stroke="#3E6E5D" stroke-opacity="0.55" stroke-width="1.5"/>
+          <circle cx="210" cy="150" r="108" fill="none" stroke="#8E6E2F" stroke-opacity="0.5" stroke-width="1.5"/>
+          <circle cx="210" cy="150" r="66" fill="none" stroke="#DEE9E2" stroke-opacity="0.6" stroke-width="1.5"/>
+          <circle cx="210" cy="150" r="30" fill="#DEE9E2" fill-opacity="0.18"/>
+        </svg>
+        <div class="hero-badge">
+          <p class="label">Areas of focus</p>
+          <p>High-conflict parenting matters, including Magellan and Evatt list cases.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="trust">
+    <div class="wrap">
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <div><h3>24/7 access</h3><p>A direct line for urgent matters, any hour.</p></div>
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.35-9.5-9A5.5 5.5 0 0 1 12 6.5 5.5 5.5 0 0 1 21.5 12c-2.5 4.65-9.5 9-9.5 9z"/></svg>
+        <div><h3>Three locations</h3><p>Beenleigh and Brisbane, QLD, plus Ballina, NSW.</p></div>
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 5-3.5 8.5-7 9-3.5-.5-7-4-7-9V6z"/></svg>
+        <div><h3>High-conflict experience</h3><p>Narcissistic abuse, alienation and coercive control matters.</p></div>
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v12H7l-3 4z"/></svg>
+        <div><h3>Judgment-free</h3><p>Wherever you're at, we'll meet you there.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="practice-areas">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">How we help</p>
+        <h2>Practice areas, laid out clearly — not buried in one long page.</h2>
+        <p>Each matter type has its own space, so you can find what applies to you without wading through everything else.</p>
+      </div>
+      <div class="practice-grid">
+        <div class="p-card">
+          <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><circle cx="17" cy="8" r="2.4"/><path d="M3 21v-2a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v2"/><path d="M15.5 13a4 4 0 0 1 4.5 4v2"/></svg></div>
+          <h3>Parenting &amp; Children's Matters</h3>
+          <p>Parenting orders, consent orders and complex matters, including Magellan and Evatt list cases and parental alienation.</p>
+          <a class="go" href="#">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
+        </div>
+        <div class="p-card">
+          <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 5-3.5 8.5-7 9-3.5-.5-7-4-7-9V6z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></div>
+          <h3>Domestic Violence &amp; Protection Orders</h3>
+          <p>Urgent applications, DVO advice and safety planning, handled with discretion and speed when it counts.</p>
+          <a class="go" href="#">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
+        </div>
+        <div class="p-card">
+          <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="10" width="18" height="9" rx="1.5"/><path d="M7 10V7a5 5 0 0 1 10 0v3"/></svg></div>
+          <h3>Property Settlement</h3>
+          <p>Asset division, binding financial agreements and spousal maintenance, worked through methodically.</p>
+          <a class="go" href="#">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
+        </div>
+        <div class="p-card">
+          <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="12" r="6.5"/><circle cx="16" cy="12" r="6.5"/></svg></div>
+          <h3>Mediation &amp; Dispute Resolution</h3>
+          <p>Family dispute resolution and collaborative processes, aimed at reaching agreement without court.</p>
+          <a class="go" href="#">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
+        </div>
+        <div class="p-card">
+          <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3l7 7-8.5 8.5-7-7z"/><path d="M5 21l3.5-1-2.5-2.5z"/><path d="M13.5 6.5l4 4"/></svg></div>
+          <h3>Criminal Law — Breach Matters</h3>
+          <p>Representation for breaches of protection orders and related criminal charges.</p>
+          <a class="go" href="#">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
+        </div>
+        <div class="p-card">
+          <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="1.5"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></div>
+          <h3>Wills &amp; Estate Planning</h3>
+          <p>Wills, powers of attorney and estate planning, so the people you love are looked after.</p>
+          <a class="go" href="#">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="approach" id="approach">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Our approach</p>
+        <h2>A trauma-informed practice, not a template.</h2>
+        <div class="stat">
+          <b>3</b>
+          <span>Offices across South East Queensland and Northern NSW, so help is close by.</span>
+        </div>
+      </div>
+      <div class="approach-list">
+        <div class="approach-item">
+          <span class="num">01</span>
+          <div><h3>Direct access to your solicitor</h3><p>You speak with the person handling your matter — not a call centre or a rotating case manager.</p></div>
+        </div>
+        <div class="approach-item">
+          <span class="num">02</span>
+          <div><h3>Real experience with complex conflict</h3><p>Narcissistic abuse, parental alienation and coercive control are matters we work with regularly, not once-off exceptions.</p></div>
+        </div>
+        <div class="approach-item">
+          <span class="num">03</span>
+          <div><h3>Plain-English guidance</h3><p>You'll always know what's happening next and why — from the first call through to final orders.</p></div>
+        </div>
+        <div class="approach-item">
+          <span class="num">04</span>
+          <div><h3>Judgment-free, whatever stage you're at</h3><p>Whether you're exploring your options or already in crisis, you'll be met with the same care.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="locations">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Where to find us</p>
+        <h2>Three locations, one team.</h2>
+        <p>In person, by phone, or by video — whichever works for your situation.</p>
+      </div>
+      <div class="loc-grid">
+        <div class="loc-card">
+          <span class="tag">QLD</span>
+          <h3>Beenleigh</h3>
+          <div class="detail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.35-9.5-9A5.5 5.5 0 0 1 12 6.5 5.5 5.5 0 0 1 21.5 12c-2.5 4.65-9.5 9-9.5 9z"/></svg><span>[Street address], Beenleigh QLD 4207</span></div>
+          <div class="detail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/></svg><span>(07) 3XXX XXXX</span></div>
+          <a class="directions" href="#">Get directions <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
+        </div>
+        <div class="loc-card">
+          <span class="tag">QLD</span>
+          <h3>Brisbane</h3>
+          <div class="detail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.35-9.5-9A5.5 5.5 0 0 1 12 6.5 5.5 5.5 0 0 1 21.5 12c-2.5 4.65-9.5 9-9.5 9z"/></svg><span>[Street address], Brisbane QLD 4000</span></div>
+          <div class="detail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/></svg><span>(07) 3XXX XXXX</span></div>
+          <a class="directions" href="#">Get directions <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
+        </div>
+        <div class="loc-card">
+          <span class="tag">NSW</span>
+          <h3>Ballina</h3>
+          <div class="detail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.35-9.5-9A5.5 5.5 0 0 1 12 6.5 5.5 5.5 0 0 1 21.5 12c-2.5 4.65-9.5 9-9.5 9z"/></svg><span>[Street address], Ballina NSW 2478</span></div>
+          <div class="detail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/></svg><span>(02) 6XXX XXXX</span></div>
+          <a class="directions" href="#">Get directions <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="insights">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Insights</p>
+        <h2>Written from experience, not a content mill.</h2>
+        <p>Practical explainers on the matters we actually handle — kept current and specific to how these cases really work.</p>
+      </div>
+      <div class="insight-grid">
+        <a class="i-card" href="#">
+          <div class="top"></div>
+          <div class="body">
+            <span class="tag">Parenting Matters</span>
+            <h3>Parenting orders and the Magellan list: what it means for your case</h3>
+            <p>How matters involving serious abuse allegations are triaged differently — and what to expect if yours is one of them.</p>
+            <div class="meta"><span>6 min read</span><span>Concept article</span></div>
+          </div>
+        </a>
+        <a class="i-card" href="#">
+          <div class="top"></div>
+          <div class="body">
+            <span class="tag">Family Law</span>
+            <h3>Recognising parental alienation — and what the court can do</h3>
+            <p>The warning signs, and the orders available when one parent is working to damage a child's relationship with the other.</p>
+            <div class="meta"><span>5 min read</span><span>Concept article</span></div>
+          </div>
+        </a>
+        <a class="i-card" href="#">
+          <div class="top"></div>
+          <div class="body">
+            <span class="tag">Criminal Law</span>
+            <h3>Breaching a protection order: what happens next</h3>
+            <p>What the process looks like once a breach is alleged, and the decisions that matter early on.</p>
+            <div class="meta"><span>4 min read</span><span>Concept article</span></div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta" id="contact">
+    <div class="wrap">
+      <p class="eyebrow">Whenever you're ready</p>
+      <h2>However you're feeling right now, you can call.</h2>
+      <p>Book a confidential consultation online, or speak with someone directly if it's urgent. There's no wrong way to start.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="#">Book a Confidential Consultation</a>
+        <a class="btn btn-urgent" href="tel:1800000000">Call 24/7 — 1800 000 000</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="#top">
+          <svg class="mark" viewBox="0 0 40 40" fill="none">
+            <rect x="1" y="1" width="38" height="38" rx="13" fill="rgba(255,255,255,0.06)"/>
+            <path d="M20 8c4 1.6 7 2.4 10 2.6v8.2c0 6.6-4.2 11-10 13.2-5.8-2.2-10-6.6-10-13.2v-8.2c3-.2 6-1 10-2.6z" fill="none" stroke="#7FB09D" stroke-width="1.8" stroke-linejoin="round"/>
+            <path d="M15.5 20.2l3 3 6-6.4" fill="none" stroke="#D2AE64" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="word"><span>Transitional Legal</span><span>Family &amp; Criminal Law</span></span>
+        </a>
+        <p>Family and criminal law across Beenleigh, Brisbane and Ballina, with a 24/7 line for urgent matters.</p>
+        <div class="concept-note">This is a homepage concept prepared for review — a working example of layout, tone and function, not a live site. <a href="index.html" style="color:#9FCBB8;text-decoration:underline;">Back to the audit report →</a></div>
+      </div>
+      <div>
+        <h4>Practice Areas</h4>
+        <ul>
+          <li><a href="#practice-areas">Parenting &amp; Children's Matters</a></li>
+          <li><a href="#practice-areas">Domestic Violence &amp; Protection Orders</a></li>
+          <li><a href="#practice-areas">Property Settlement</a></li>
+          <li><a href="#practice-areas">Mediation</a></li>
+          <li><a href="#practice-areas">Criminal Law</a></li>
+          <li><a href="#practice-areas">Wills &amp; Estates</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Locations</h4>
+        <p class="loc-mini"><b>Beenleigh, QLD</b>(07) 3XXX XXXX</p>
+        <p class="loc-mini"><b>Brisbane, QLD</b>(07) 3XXX XXXX</p>
+        <p class="loc-mini"><b>Ballina, NSW</b>(02) 6XXX XXXX</p>
+      </div>
+      <div>
+        <h4>Firm</h4>
+        <ul>
+          <li><a href="#approach">About</a></li>
+          <li><a href="#insights">Insights</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Transitional Legal. Liability limited by a scheme approved under Professional Standards Legislation.</span>
+      <div class="legal-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms &amp; Conditions</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('quickExit').addEventListener('click', function(){
+    window.location.replace('https://www.bom.gov.au/');
+  });
+  window.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){
+      window.location.replace('https://www.bom.gov.au/');
+    }
+  });
+</script>
+</body>
+</html>
